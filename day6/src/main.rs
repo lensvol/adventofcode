@@ -10,7 +10,7 @@ static CMD_RE: &'static str = r"(turn on|toggle|turn off) (\d+),(\d+) through (\
 type LightsMap = HashMap<(i32, i32), u8>;
 
 
-fn read_from_stdin() -> String{
+fn read_from_stdin() -> String {
     let mut buffer = String::new();
     io::stdin().read_to_string(&mut buffer).unwrap();
     buffer
@@ -52,7 +52,7 @@ fn day6(input: String) -> usize {
         let y1: i32 = cap.at(3).unwrap().to_string().parse().unwrap();
 
         let x2: i32 = cap.at(4).unwrap().to_string().parse().unwrap();
-        let y2: i32 = cap.at(5).unwrap().to_string().parse().unwrap();        
+        let y2: i32 = cap.at(5).unwrap().to_string().parse().unwrap();
 
         let handler: Option<fn(&mut LightsMap, i32, i32) -> ()> = match cmd {
             "turn off" => Some(turn_off),
@@ -62,14 +62,14 @@ fn day6(input: String) -> usize {
         };
 
         if let Some(f) = handler {
-            for y in y1..y2 + 1{
-                for x in x1..x2 + 1{
+            for y in y1..y2 + 1 {
+                for x in x1..x2 + 1 {
                     f(&mut matrix, x, y);
                 }
             }
         }
     }
-    
+
     matrix.len()
 }
 

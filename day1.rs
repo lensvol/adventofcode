@@ -1,6 +1,6 @@
 use std::io::{self, Read};
 
-fn read_from_stdin() -> String{
+fn read_from_stdin() -> String {
     let mut buffer = String::new();
     io::stdin().read_to_string(&mut buffer).unwrap();
     buffer
@@ -12,7 +12,7 @@ fn day1(input: String) -> i32 {
         floor = match c {
             '(' => floor + 1,
             ')' => floor - 1,
-            _ => floor
+            _ => floor,
         };
     }
     floor

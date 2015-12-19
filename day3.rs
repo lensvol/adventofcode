@@ -1,7 +1,7 @@
 use std::io::{self, Read};
 use std::collections::HashMap;
 
-fn read_from_stdin() -> String{
+fn read_from_stdin() -> String {
     let mut buffer = String::new();
     io::stdin().read_to_string(&mut buffer).unwrap();
     buffer
